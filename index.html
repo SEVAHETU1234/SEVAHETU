@@ -1,81 +1,6 @@
 <!doctype html>
 <html lang="en" class="h-full">
  <head>
- 
-  </style>
-  <style>body { box-sizing: border-box; }</style>
-  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
- </head>
- <body class="h-full w-full bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4"><!-- Logo Upload Area -->
-  <div id="logo-container" class="relative w-80 h-80 bg-white rounded-3xl shadow-2xl flex items-center justify-center border-2 border-dashed border-blue-200"><img id="custom-logo" src="" alt="Logo" class="w-full h-full object-contain p-6 rounded-3xl" style="display: none;">
-   <div id="logo-placeholder" class="text-center px-6">
-    <svg class="w-24 h-24 text-blue-300 mx-auto mb-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"></path>
-    </svg>
-    <p class="text-lg font-semibold text-gray-700 mb-2">Click to Upload Logo</p>
-    <p class="text-sm text-gray-500">PNG, JPG or GIF</p>
-   </div>
-  </div>
-  <script>
-    const defaultConfig = { logo_url: "" };
-
-    function initLogoUpload() {
-      const logoContainer = document.getElementById('logo-container');
-      const customLogo = document.getElementById('custom-logo');
-      const logoPlaceholder = document.getElementById('logo-placeholder');
-
-      logoContainer.addEventListener('click', () => {
-        const input = document.createElement('input');
-        input.type = 'file';
-        input.accept = 'image/*';
-        input.onchange = (e) => {
-          const file = e.target.files[0];
-          if (file) {
-            const reader = new FileReader();
-            reader.onload = (event) => {
-              customLogo.src = event.target.result;
-              customLogo.style.display = 'block';
-              logoPlaceholder.style.display = 'none';
-              if (window.elementSdk) {
-                window.elementSdk.setConfig({ logo_url: event.target.result });
-              }
-            };
-            reader.readAsDataURL(file);
-          }
-        };
-        input.click();
-      });
-    }
-
-    function onConfigChange(config) {
-      if (config.logo_url) {
-        const customLogo = document.getElementById('custom-logo');
-        const logoPlaceholder = document.getElementById('logo-placeholder');
-        customLogo.src = config.logo_url;
-        customLogo.style.display = 'block';
-        logoPlaceholder.style.display = 'none';
-      }
-    }
-
-    function mapToCapabilities(config) {
-      return {
-        recolorables: [],
-        borderables: [],
-        fontEditable: undefined,
-        fontSizeable: undefined
-      };
-    }
-
-    function mapToEditPanelValues(config) {
-      return new Map();
-    }
-
-    initLogoUpload();
-    if (window.elementSdk) {
-      window.elementSdk.init({ defaultConfig, onConfigChange, mapToCapabilities, mapToEditPanelValues });
-    }
-  </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9cd2f28394e54700',t:'MTc3MDk3MTI1NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
-</html>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SEVAHETU - Emergency Support</title>
@@ -368,28 +293,9 @@
         </svg>
        </div><span class="text-white font-bold text-xl">SEVAHETU</span>
       </div>
-     <div class="text-center sm:text-right">
-<p class="text-blue-100 mb-1">© 2026 SEVAHETU. All rights reserved.</p>
-
-<a href="mailto:helpsevahetu@gmail.com" class="text-white hover:text-blue-200 transition-colors">
-helpsevahetu@gmail.com
-</a>
-
-<div class="flex gap-4 justify-center sm:justify-end mt-3">
-
-<a href="https://x.com/sevahetu" target="_blank"
-class="text-white hover:text-blue-200 transition-colors">
-X
-</a>
-
-<a href="https://www.facebook.com/profile.php?id=61583481415231" target="_blank"
-class="text-white hover:text-blue-200 transition-colors">
-Facebook
-</a>
-
-</div>
-</div>
- 
+      <div class="text-center sm:text-right">
+       <p class="text-blue-100 mb-1">© 2026 SEVAHETU. All rights reserved.</p><a href="mailto:helpsevahetu@gmail.com" class="text-white hover:text-blue-200 transition-colors">helpsevahetu@gmail.com</a>
+      </div>
      </div>
     </div>
    </footer>
@@ -524,9 +430,8 @@ Facebook
         ["subheadline", config.subheadline || defaultConfig.subheadline],
         ["email", config.email || defaultConfig.email],
         ["phone", config.phone || defaultConfig.phone]
-  <b>Social</b><br>
- <a href="https://www.facebook.com/profile.php?id=61583481415231" target="_blank">X</br>
-<a href="https://www.linkedin.com/company/sevahetu" target="_blank">linkedin</br>]);}
+      ]);
+    }
 
     // Initialize SDK
     if (window.elementSdk) {
@@ -538,5 +443,5 @@ Facebook
       });
     }
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9cd2d197f68e91ca',t:'MTc3MDk2OTkwNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
-</html>    
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9cd2f28394768993',t:'MTc3MDk3MTI1NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
